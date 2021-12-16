@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_lower_hex.c                               :+:      :+:    :+:   */
+/*   ft_write_upper_hex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 21:25:03 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/16 21:36:17 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/16 21:39:54 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	print_hex(int n, int count)
 	char	*hex_table;
 	int		index;
 
-	hex_table = "0123456789abcdef";
+	hex_table = "0123456789ABCDEF";
 	hex_string = (char *)malloc(sizoef(char) * (count + 1));
 	if (!hex_string)
 		return (0);
@@ -51,12 +51,12 @@ static int	print_hex(int n, int count)
 
 int	ft_write_lower_hex(va_list ap)
 {
-	unsigned int	lower_hex;
+	unsigned int	upper_hex;
 	int				count;
 	int				len;
 
-	lower_hex = va_arg(ap, int);
-	count = hexnu_count(lower_hex);
-	len = print_hex(lower_hex, count);
+	upper_hex = va_arg(ap, int);
+	count = hexnu_count(upper_hex);
+	len = print_hex(upper_hex, count);
 	return (len);
 }
