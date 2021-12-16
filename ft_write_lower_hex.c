@@ -6,7 +6,7 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 21:25:03 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/16 21:36:17 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/16 21:51:16 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	print_hex(int n, int count)
 	int		index;
 
 	hex_table = "0123456789abcdef";
-	hex_string = (char *)malloc(sizoef(char) * (count + 1));
+	hex_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!hex_string)
 		return (0);
 	hex_string[count] = '\0';
