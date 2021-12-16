@@ -19,7 +19,14 @@
 
 # define ERR	-1
 
-typedef void	(*FUNC_TYPE)(va_list);
+typedef int	(*FUNC_TYPE)(va_list);
+
+int     ft_printf(const char *format_string, ...);
+void    ft_format_specifier(int (*f[])(va_list));
+
+int     ft_write_character(va_list ap);
+int     ft_write_string(va_list ap);
+int     ft_write_pointer_hex(va_list ap);
 
 size_t	ft_strlen(char *str);
 

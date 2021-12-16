@@ -21,9 +21,14 @@ ARFLAGS		= rcs
 RM			= rm
 RMFLAGS		= -f
 
-INCLUDES	= ./libft.h
+INCLUDES	= ./libftprintf.h
 
-SRCS		= 
+SRCS		= ft_printf.c	\
+				ft_format_specifier.c	\
+				ft_write_character.c	\
+				ft_write_string.c		\
+				ft_write_pointer_hex.c	\
+				ft_strlen.c				\
 
 SRCS_BN		=
 
@@ -40,4 +45,24 @@ endif
 .PHONY : all
 all : $(NAME)
 
+%.o : %.c $(INCLUDES)
+		$(CC) $(CFLAGS) -c $< -o $@
 
+$(NAME) : $ (A_OBJS)
+		$(AR) $(ARFLAGS) $@ $^
+
+.PHONY : clean
+clean :
+		$(RM) $(RMFLAGS) $(OBJS) $(OBJS_BONUS)
+
+.PHONY : fclean
+fclean : clean
+		$(RM) $(RMFLAGS) $(NAME)
+
+.PHONY : re
+re :
+		$(MAKE) fclean
+		$(MAKE) caller
+.PHONY : bonus
+bonus :
+		$(MAKE) WITH_BONUS=1 all

@@ -21,13 +21,13 @@ static int	nu_count(unsigned long long n)
 		count++;
 	while (n)
 	{
-		n \= 16;
+		n /= 16;
 		count++;
 	}
 	return (count);
 }
 
-int	ft_write_pointer_hex(const char *format, va_list ap)
+int	ft_write_pointer_hex(va_list ap, (*f)(char *))
 {
 	unsigned long long	address;
 	char				*add_table;
@@ -41,7 +41,7 @@ int	ft_write_pointer_hex(const char *format, va_list ap)
 	add_string[1] = 'x';
 	count = nu_count(address);
 	add_string[count + 1] = '\0';
-	index = 2 + count;
+	index = 1 + count;
 	while (count-- && index >= 2)
 	{
 		add_string[index--] = add_string[address % 16];
@@ -49,3 +49,4 @@ int	ft_write_pointer_hex(const char *format, va_list ap)
 	}
 	return (write(1, add_string, ft_strlen(add_string)));
 }
+*f

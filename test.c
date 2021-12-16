@@ -29,8 +29,8 @@ int main()
 	add_string[0] = '0';
 	add_string[1] = 'x';
 	count = nu_count(address);
-	add_string[count + 1] = '\0';
-	index = 1 + count;
+	add_string[18] = '\0';
+	index = 17;
 	while (count-- && index >= 2)
 	{
 		add_string[index--] = add_string[address % 16];
