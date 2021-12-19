@@ -27,7 +27,13 @@ SRCS		= ft_printf.c	\
 				ft_format_specifier.c	\
 				ft_write_character.c	\
 				ft_write_string.c		\
+				ft_write_integer.c	\
+				ft_write_decimal.c	\
+				ft_write_unsigned.c	\
+				ft_wirte_format_specifier.c	\
 				ft_write_pointer_hex.c	\
+				ft_write_lower_hex.c	\
+				ft_write_upper_hex.c	\
 				ft_strlen.c				\
 
 SRCS_BN		=

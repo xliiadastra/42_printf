@@ -51,9 +51,9 @@ static int	print_hex(int n, int count)
 
 int	ft_write_lower_hex(va_list ap)
 {
-	unsigned int	lower_hex;
-	int				count;
-	int				len;
+	int	lower_hex;
+	int	count;
+	int	len;
 
 	lower_hex = va_arg(ap, int);
 	count = hexnu_count(lower_hex);
