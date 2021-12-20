@@ -12,41 +12,55 @@
 
 #include "libftprintf.h"
 
-static int	nu_count(unsigned long long n)
+int	nu_count(unsigned long long n)
 {
 	int	count;
-
+	
 	count = 0;
 	if (n == 0)
 		count++;
 	while (n)
 	{
-		n /= 16;
+		n  /= 16;
 		count++;
 	}
 	return (count);
 }
 
-int	ft_write_pointer_hex(va_list ap, (*f)(char *))
+static int      print_hex(unsigned long long n, int count)
 {
-	unsigned long long	address;
-	char				*add_table;
-	char				add_string[19];
-	int					index;
-	int					count;
+        char    *hex_string;
+        char    *hex_table;
+        int             index;
 
-	address = va_arg(ap, long long);
-	add_table = "0123456789abcdef";
-	add_string[0] = '0';
-	add_string[1] = 'x';
-	count = nu_count(address);
-	add_string[count + 1] = '\0';
-	index = 1 + count;
-	while (count-- && index >= 2)
-	{
-		add_string[index--] = add_string[address % 16];
-		address /= 16;
-	}
-	return (write(1, add_string, ft_strlen(add_string)));
+        if (n == 0)
+                return (write(1, "0x0", 3));
+        hex_table = "0123456789abcdef";
+        hex_string = (char *)malloc(sizeof(char) * (count + 3));
+        if (!hex_string)
+                return (0);
+        hex_string[count] = '\0';
+	hex_string[0] = '0';
+	hex_string[1] = 'x';
+        index = count;
+        while (n)
+        {
+                hex_string[--index] = hex_table[n % 16];
+                n /= 16;
+        }
+        write(1, hex_string, count);
+        free(hex_string);
+        return (count);
 }
-*f
+
+int     ft_write_address(va_list ap)
+{
+        unsigned long long	address;
+        int     count;
+        int     len;
+
+        address = va_arg(ap, long long);
+        count = hexnu_count(address);
+        len = print_hex(address, count);
+        return (len);
+}

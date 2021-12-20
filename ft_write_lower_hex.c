@@ -33,6 +33,8 @@ static int	print_hex(unsigned int n, int count)
 	char	*hex_table;
 	int		index;
 
+	if (n == 0)
+		return (write(1, "0", 1));
 	hex_table = "0123456789abcdef";
 	hex_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!hex_string)
