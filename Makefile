@@ -34,6 +34,7 @@ SRCS		= ft_printf.c	\
 				ft_write_address.c	\
 				ft_write_lower_hex.c	\
 				ft_write_upper_hex.c	\
+				ft_write_percent.c	\
 				ft_strlen.c				\
 
 SRCS_BN		=
