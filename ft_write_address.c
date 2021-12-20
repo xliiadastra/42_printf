@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	hexnu_count(unsigned long long n)
+static int	hexnu_count(unsigned long long n)
 {
 	int	count;
 	
