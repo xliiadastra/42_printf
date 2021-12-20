@@ -13,11 +13,11 @@
 #include "libftprintf.h"
 
 //static int parse_flag()
-//{	
+//{
 //	return ();
 //}
 
-static int	ft_find(FUNC_TYPE *operations, const char *option, const char *format, va_list ap)
+static int	to_find(FUNC_TYPE *operations, const char *option, const char *format, va_list ap)
 {
 //	const char	*flag;
 	int	i;
@@ -56,7 +56,7 @@ int	ft_printf(const char *format_string, ...)
 		if (*format_string != '%')
 			write(1, format_string, 1);
 		else
-			count += ft_find(operations, option, format_string + 1, ap);
+			count += to_find(operations, option, format_string + 1, ap);
 		format_string++;
 		count++;
 	}
