@@ -12,6 +12,9 @@
 
 #include "libftprintf.h"
 
+//static const char	*option = "cspdiuxX%";
+//static const char	*flag = "# +-0.";
+
 //static int parse_flag()
 //{
 //	return ();
@@ -40,6 +43,28 @@ static int	to_find(FUNC_TYPE *operations, const char *option, const char *format
 	return (count);
 }
 
+//static int	update(char *format)
+//{
+//	int	count;
+//	int	i;
+//	int	j;
+//
+//	count = 0;
+//	i = 0;
+//	j = 0;
+//	while (*format)
+//	{
+//		while (i < sizeof(option))
+//			if (*format == option[i] && ++i)
+//				format++;
+//		while (j < sizeof(flag))
+//		       	if (*format == flag[j] && ++j)
+//				format++;
+//		break ;
+//	}
+//	return (count);
+//}
+
 int	ft_printf(const char *format_string, ...)
 {
 	va_list			ap;
@@ -53,12 +78,14 @@ int	ft_printf(const char *format_string, ...)
 	option = "cspdiuxX%";
 	while (*format_string)
 	{
-		if (*format_string != '%')
-			write(1, format_string, 1);
+		if (*format_string != '%' && ++count)
+			write(1, format_string++, 1);
 		else
-			count += to_find(operations, option, format_string + 1, ap);
-		format_string++;
-		count++;
+		{
+			count += to_find(operations, option, ++format_string, ap);
+//			format_string = format_string + update(format_string);
+			format_string++;
+		}
 	}
 	va_end(ap);
 	return (count);
