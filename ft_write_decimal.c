@@ -59,7 +59,7 @@ int	ft_write_decimal(va_list ap)
 	int		len;
 
 	decimal = va_arg(ap, int);
-	if (decimal == "-2147483648")
+	if (decimal == -2147483648)
 		return (write(1, "-2147483648", 11));
 	count = nu_count(decimal);
 	len = print_num(decimal, count);

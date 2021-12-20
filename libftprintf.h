@@ -26,7 +26,7 @@ void    ft_format_specifier(int (*f[])(va_list));
 
 int     ft_write_character(va_list ap);
 int     ft_write_string(va_list ap);
-int     ft_write_pointer_hex(va_list ap);
+int     ft_write_address(va_list ap);
 int		ft_write_decimal(va_list ap);
 int		ft_write_integer(va_list ap);
 int		ft_write_unsigned(va_list ap);

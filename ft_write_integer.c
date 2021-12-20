@@ -59,7 +59,7 @@ int	ft_write_integer(va_list ap)
 	int		len;
 
 	integer = va_arg(ap, int);
-	if (integer == "-2147483648")
+	if (integer == -2147483648)
 		return (write(1, "-2147483648", 11));
 	count = nu_count(integer);
 	len = print_num(integer, count);

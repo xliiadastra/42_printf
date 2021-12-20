@@ -30,8 +30,8 @@ SRCS		= ft_printf.c	\
 				ft_write_integer.c	\
 				ft_write_decimal.c	\
 				ft_write_unsigned.c	\
-				ft_wirte_format_specifier.c	\
-				ft_write_pointer_hex.c	\
+				ft_format_specifier.c	\
+				ft_write_address.c	\
 				ft_write_lower_hex.c	\
 				ft_write_upper_hex.c	\
 				ft_strlen.c				\
@@ -54,7 +54,7 @@ all : $(NAME)
 %.o : %.c $(INCLUDES)
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $ (A_OBJS)
+$(NAME) : $(A_OBJS)
 		$(AR) $(ARFLAGS) $@ $^
 
 .PHONY : clean
