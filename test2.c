@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static int      hexnu_count(int n)
+static int      hexnu_count(unsigned int n)
 {
         int     count;
 
@@ -17,7 +17,7 @@ static int      hexnu_count(int n)
         return (count);
 }
 
-static int      print_hex(int n, int count)
+static int      print_hex(unsigned int n, int count)
 {
         char    *hex_string;
         char    *hex_table;
@@ -39,9 +39,9 @@ static int      print_hex(int n, int count)
         return (count);
 }
 
-int     ft_write_lower_hex(int b)
+int     ft_write_lower_hex(unsigned int b)
 {
-        int     lower_hex = 1121564652;
+        unsigned int     lower_hex = 3121564652;
         int     count;
         int     len;
 
@@ -54,7 +54,7 @@ int     ft_write_lower_hex(int b)
 
 int main()
 {
-	int a = 1121564652;
+	int a = 3121564652;
 	int b = ft_write_lower_hex(b);
 	printf("\n\n%x\n", a);
 }

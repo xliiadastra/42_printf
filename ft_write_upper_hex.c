@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-static int	hexnu_count(int n)
+static int	hexnu_count(unsigned int n)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ static int	hexnu_count(int n)
 	return (count);
 }
 
-static int	print_hex(int n, int count)
+static int	print_hex(unsigned int n, int count)
 {
 	char	*hex_string;
 	char	*hex_table;
@@ -51,7 +51,7 @@ static int	print_hex(int n, int count)
 
 int	ft_write_lower_hex(va_list ap)
 {
-	int	upper_hex;
+	unsigned int	upper_hex;
 	int	count;
 	int	len;
 
