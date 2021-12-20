@@ -51,7 +51,7 @@ static int	print_hex(unsigned int n, int count)
 	return (count);
 }
 
-int	ft_write_lower_hex(va_list ap)
+int	ft_write_upper_hex(va_list ap)
 {
 	unsigned int	upper_hex;
 	int	count;
