@@ -56,7 +56,7 @@ int	ft_printf(const char *format_string, ...)
 		if (*format_string != '%')
 			write(1, format_string, 1);
 		else
-			count += ft_find(operations, option, format_string, ap);
+			count += ft_find(operations, option, format_string + 1, ap);
 		format_string++;
 		count++;
 	}
