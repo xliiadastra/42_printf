@@ -34,7 +34,8 @@ static int      print_hex(unsigned long long n, int count)
 	int             index;
 
 	hex_table = "0123456789abcdef";
-	hex_string = (char *)malloc(sizeof(char) * (count + 3));
+	count += 2;
+	hex_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!hex_string)
 		return (0);
 	hex_string[count] = '\0';
