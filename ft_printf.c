@@ -12,14 +12,21 @@
 
 #include "libftprintf.h"
 
-int	ft_find(FUNC_TYPE *operations, const char *option, const char *format, va_list ap)
+//static int parse_flag()
+//{	
+//	return ();
+//}
+
+static int	ft_find(FUNC_TYPE *operations, const char *option, const char *format, va_list ap)
 {
+//	const char	*flag;
 	int	i;
 	int	count;
 	int	n;
 
+//	flag = "# +-0.";
+//	count = parse_flag();
 	i = 0;
-	count = 0;
 	n = sizeof(option) / sizeof(char);
 	while (i < n)
 	{
@@ -44,7 +51,6 @@ int	ft_printf(const char *format_string, ...)
 	ft_format_specifier(operations);
 	count = 0;
 	option = "cspdiuxX%";
-	va_start(ap, format_string);
 	while (*format_string)
 	{
 		if (*format_string != '%')

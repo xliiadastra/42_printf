@@ -14,5 +14,6 @@
 
 int	ft_write_percent(va_list ap)
 {
+	(void)ap;
 	return (write(1, "%", 1));
 }
