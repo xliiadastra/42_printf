@@ -33,8 +33,6 @@ static int	print_hex(unsigned int n, int count)
 	char	*hex_table;
 	int	index;
 
-	if (n == 0)
-		return (write(1, "0", 1));
 	hex_table = "0123456789ABCDEF";
 	hex_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!hex_string)
@@ -58,6 +56,8 @@ int	ft_write_upper_hex(va_list ap)
 	int	len;
 
 	upper_hex = va_arg(ap, int);
+	if (upper_hex == 0)
+		return (write(1, "0", 1));
 	count = hexnu_count(upper_hex);
 	len = print_hex(upper_hex, count);
 	return (len);
