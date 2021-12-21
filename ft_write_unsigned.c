@@ -6,7 +6,7 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 19:32:05 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/21 16:18:38 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 16:29:59 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	print_num(unsigned int n, int count)
 {
 	char	*unsigned_string;
 	int		index;
-
+dd
 	unsigned_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!unsigned_string)
 		return (0);
