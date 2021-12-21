@@ -6,11 +6,11 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:46:51 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/16 20:49:37 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 15:39:36 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_write_percent(va_list ap)
 {
