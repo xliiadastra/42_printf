@@ -6,42 +6,40 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:29:11 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/21 14:57:23 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 15:40:01 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static const char	option[9] = { 'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%'};
-//static const char	*flag = "# +-0.";
+static const char	g_option[9] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%'};
+//static const char	g_flag[6] = "# +-0.";
 
 //static int parse_flag()
 //{
 //	return ();
 //}
 
-static int	to_find(FUNC_TYPE *operations, const char *format, va_list ap)
+char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssize_t *count)
 {
 //	const char	*flag;
 	int	i;
-	int	count;
 	int	n;
 
 //	flag = "# +-0.";
 //	count = parse_flag();
 	i = 0;
-	count = 0;
-	n = sizeof(option) / sizeof(char);
+	n = sizeof(g_option) / sizeof(char);
 	while (i < n)
 	{
-		if (option[i]  == *format)
+		if (g_option[i]  == *format)
 		{
-			count = (*(operations[i]))(ap);
+			*count = *count + (*(operations[i]))(ap);
 			break ;
 		}
 		i++;
 	}
-	return (count);
+	return ((char *)format);
 }
 
 //static int	update(char *format)
@@ -83,9 +81,9 @@ int	ft_printf(const char *format_string, ...)
 			write(1, format_string++, 1);
 		else
 		{
-			count += to_find(operations, ++format_string, ap);
-//			format_string = format_string + update(format_string);
+			format_string = (const char *)to_find(operations, ++format_string, ap, &count);
 			format_string++;
+//			format_string = format_string + update(format_string);
 		}
 	}
 	va_end(ap);
