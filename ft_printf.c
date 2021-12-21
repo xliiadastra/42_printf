@@ -6,13 +6,13 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:29:11 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/15 17:58:21 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 14:57:23 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-//static const char	*option = "cspdiuxX%";
+static const char	option[9] = { 'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%'};
 //static const char	*flag = "# +-0.";
 
 //static int parse_flag()
@@ -20,7 +20,7 @@
 //	return ();
 //}
 
-static int	to_find(FUNC_TYPE *operations, const char *option, const char *format, va_list ap)
+static int	to_find(FUNC_TYPE *operations, const char *format, va_list ap)
 {
 //	const char	*flag;
 	int	i;
@@ -30,6 +30,7 @@ static int	to_find(FUNC_TYPE *operations, const char *option, const char *format
 //	flag = "# +-0.";
 //	count = parse_flag();
 	i = 0;
+	count = 0;
 	n = sizeof(option) / sizeof(char);
 	while (i < n)
 	{
@@ -68,21 +69,21 @@ static int	to_find(FUNC_TYPE *operations, const char *option, const char *format
 int	ft_printf(const char *format_string, ...)
 {
 	va_list			ap;
-	const char		*option;
+//	const char		*option;
 	ssize_t			count;
 	FUNC_TYPE		operations[9];
 
 	va_start(ap, format_string);
 	ft_format_specifier(operations);
 	count = 0;
-	option = "cspdiuxX%";
+//	option = "cspdiuxX%";
 	while (*format_string)
 	{
 		if (*format_string != '%' && ++count)
 			write(1, format_string++, 1);
 		else
 		{
-			count += to_find(operations, option, ++format_string, ap);
+			count += to_find(operations, ++format_string, ap);
 //			format_string = format_string + update(format_string);
 			format_string++;
 		}
