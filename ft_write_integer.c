@@ -6,18 +6,18 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 19:32:05 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/16 20:58:42 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 16:18:18 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	nu_count(int n)
 {
 	int	count;
 
 	count = 0;
-	if (n == 0 || n < 0)
+	if (n < 0)
 		count++;
 	while (n)
 	{
@@ -32,7 +32,7 @@ static int	print_num(int n, int count)
 	char	*int_string;
 	int		index;
 
-	int_string = (char *)malloc(sizeof(char) * count + 1);
+	int_string = (char *)malloc(sizeof(char) * (count + 1));
 	if (!int_string)
 		return (0);
 	if (n < 0)
@@ -44,7 +44,7 @@ static int	print_num(int n, int count)
 	index = count;
 	while (n)
 	{
-		int_string[--index] = n % 10;
+		int_string[--index] = n % 10 + '0';
 		n /= 10;
 	}
 	write(1, int_string, count);
@@ -61,6 +61,8 @@ int	ft_write_integer(va_list ap)
 	integer = va_arg(ap, int);
 	if (integer == -2147483648)
 		return (write(1, "-2147483648", 11));
+	if (integer == 0)
+		return (write(1, "0", 1));
 	count = nu_count(integer);
 	len = print_num(integer, count);
 	return (len);
