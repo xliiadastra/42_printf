@@ -6,13 +6,13 @@
 /*   By: yichoi <yichoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:37:07 by yichoi            #+#    #+#             */
-/*   Updated: 2021/12/13 18:38:12 by yichoi           ###   ########.fr       */
+/*   Updated: 2021/12/21 15:39:06 by yichoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(char *str)
+size_t	pf_strlen(char *str)
 {
 	size_t	len;
 

@@ -1,10 +1,13 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
+
+
 #include <stdio.h>
 
 int main()
 {
-	char	*name = "yichoi";
-	int num = 84534654;
-	ft_printf("hi my name is %s, %x, %p\n", name, num, &num);
-	printf("hi my name is %s, %x, %p\n", name, num, &num);
+	int a = 100;
+	int b = -100;
+	ft_printf("%u\n", b);
+	printf("%u\n", b);
 }
+
