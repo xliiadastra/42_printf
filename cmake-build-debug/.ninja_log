@@ -1,0 +1,16 @@
+# ninja log v5
+3	66	1640158522000000000	CMakeFiles/ft_printf.dir/ft_format_specifier.c.o	10351348dad61992
+1	39	1640158556000000000	CMakeFiles/ft_printf.dir/ft_write_integer.c.o	659cdecd590e2f30
+2	62	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_character.c.o	3789a0c5dc65b801
+2	62	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_decimal.c.o	f6fac3caceafa94d
+1	42	1640158556000000000	CMakeFiles/ft_printf.dir/pf_strlen.c.o	63d15ed1fcbb496c
+2	70	1640158557000000000	CMakeFiles/ft_printf.dir/ft_printf.c.o	3c7802bb17c22521
+2	62	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_upper_hex.c.o	8f0f7347b5c761c7
+1	37	1640158620000000000	CMakeFiles/ft_printf.dir/main.c.o	d1a5f03a11390a8f
+1	61	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_string.c.o	f53fba9ccd76073f
+2	50	1640158556000000000	CMakeFiles/ft_printf.dir/ft_write_percent.c.o	a38d9ee9d5b628d0
+37	77	1640158620000000000	ft_printf	8c54504f1ca9916a
+0	53	1640171495000000000	build.ninja	743154ca91470407
+2	45	1640158556000000000	CMakeFiles/ft_printf.dir/ft_write_lower_hex.c.o	4f188313e299f58a
+2	62	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_unsigned.c.o	f5906dd9b508cc3
+1	61	1640158522000000000	CMakeFiles/ft_printf.dir/ft_write_address.c.o	f104c8297dda1a00

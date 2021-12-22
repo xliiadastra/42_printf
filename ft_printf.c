@@ -20,17 +20,43 @@ static const char	g_option[9] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%'};
 //	return ();
 //}
 
-char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssize_t *count)
+void	parse_flag(t_flag_option *fo, flag_operations *fos, const char flag, int index)
 {
-//	const char	*flag;
+	sibal;
+}
+
+static char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssize_t *count)
+{
 	int	i;
 	int	n;
+	int check;
+	t_flag_option fo;
+	flag_operations fos;
 
-//	flag = "# +-0.";
+	i = 0;
+	n = sizeof(g_flag) / sizeof(char);
+	while (*format)
+	{
+		i = 0;
+		check = 0;
+		while (i < n)
+		{
+			if (g_flag[i] == *format)
+			{
+
+				check = 1;
+				break ;
+			}
+			i++;
+		}
+		if (!check)
+			break ;
+		format++;
+	}
 //	count = parse_flag();
 	i = 0;
 	n = sizeof(g_option) / sizeof(char);
-	while (i < n)
+	while (i < n && *format)
 	{
 		if (g_option[i]  == *format)
 		{
@@ -41,28 +67,6 @@ char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssize_t *co
 	}
 	return ((char *)format);
 }
-
-//static int	update(char *format)
-//{
-//	int	count;
-//	int	i;
-//	int	j;
-//
-//	count = 0;
-//	i = 0;
-//	j = 0;
-//	while (*format)
-//	{
-//		while (i < sizeof(option))
-//			if (*format == option[i] && ++i)
-//				format++;
-//		while (j < sizeof(flag))
-//		       	if (*format == flag[j] && ++j)
-//				format++;
-//		break ;
-//	}
-//	return (count);
-//}
 
 int	ft_printf(const char *format_string, ...)
 {
@@ -83,7 +87,6 @@ int	ft_printf(const char *format_string, ...)
 		{
 			format_string = (const char *)to_find(operations, ++format_string, ap, &count);
 			format_string++;
-//			format_string = format_string + update(format_string);
 		}
 	}
 	va_end(ap);
