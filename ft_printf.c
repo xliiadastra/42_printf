@@ -12,53 +12,19 @@
 
 #include "ft_printf.h"
 
-static const char	g_option[9] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%'};
-//static const char	g_flag[6] = "# +-0.";
-
-//static int parse_flag()
-//{
-//	return ();
-//}
-
-void	parse_flag(t_flag_option *fo, flag_operations *fos, const char flag, int index)
-{
-	sibal;
-}
-
 static char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssize_t *count)
 {
 	int	i;
 	int	n;
 	int check;
-	t_flag_option fo;
-	flag_operations fos;
+    const char		*option;
 
-	i = 0;
-	n = sizeof(g_flag) / sizeof(char);
-	while (*format)
+    i = 0;
+    option = "cspdiuxX%";
+    n = sizeof(operations) / sizeof(char);
+    while (i < n && *format)
 	{
-		i = 0;
-		check = 0;
-		while (i < n)
-		{
-			if (g_flag[i] == *format)
-			{
-
-				check = 1;
-				break ;
-			}
-			i++;
-		}
-		if (!check)
-			break ;
-		format++;
-	}
-//	count = parse_flag();
-	i = 0;
-	n = sizeof(g_option) / sizeof(char);
-	while (i < n && *format)
-	{
-		if (g_option[i]  == *format)
+		if (option[i] == *format)
 		{
 			*count = *count + (*(operations[i]))(ap);
 			break ;
@@ -71,14 +37,12 @@ static char	*to_find(FUNC_TYPE *operations, const char *format, va_list ap, ssiz
 int	ft_printf(const char *format_string, ...)
 {
 	va_list			ap;
-//	const char		*option;
 	ssize_t			count;
 	FUNC_TYPE		operations[9];
 
 	va_start(ap, format_string);
 	ft_format_specifier(operations);
 	count = 0;
-//	option = "cspdiuxX%";
 	while (*format_string)
 	{
 		if (*format_string != '%' && ++count)

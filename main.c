@@ -3,7 +3,7 @@
 
 int main()
 {
-	int a = 100;
-	ft_printf("Hello, %u World!\n", a);
+    int a = 100;
+	ft_printf("Hello, %X World!\n", a);
 	return 0;
 }

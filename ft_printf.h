@@ -17,26 +17,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-# define ERR	-1
-
-typedef struct s_flag_option
-{
-	int flag;
-	int type;
-	size_t front;
-	size_t back;
-}	t_flag_option;
-
-typedef enum
-{
-	hash = 1,
-	space = 10,
-	plus = 100,
-	minus = 1000,
-	number = 10000,
-	dot = 100000
-} flag_operations;
-
 typedef int	(*FUNC_TYPE)(va_list);
 
 int	ft_printf(const char *format_string, ...);

@@ -35,19 +35,19 @@ SRCS		= ft_printf.c	\
 			  ft_write_lower_hex.c	\
 			  ft_write_upper_hex.c	\
 			  ft_write_percent.c	\
-			  pf_strlen.c				\
+			  pf_strlen.c
 
-SRCS_BN		=
+//SRCS_BN		=
 
 OBJS		= $(SRCS:.c=.o)
 
-OBJS_BONUS	= $(SRCS_BN:.c=.o)
+//OBJS_BONUS	= $(SRCS_BN:.c=.o)
 
-ifdef WITH_BONUS
-A_OBJS = $(OBJS) $(OBJS_BONUS)
-else
-A_OBJS = $(OBJS)
-endif
+//ifdef WITH_BONUS
+//A_OBJS = $(OBJS) $(OBJS_BONUS)
+//else
+//A_OBJS = $(OBJS)
+//endif
 
 .PHONY : all
 all : $(NAME)
@@ -70,6 +70,7 @@ fclean : clean
 re :
 		$(MAKE) fclean
 		$(MAKE) caller
-.PHONY : bonus
-bonus :
-		$(MAKE) WITH_BONUS=1 all
+
+//.PHONY : bonus
+//bonus :
+//		$(MAKE) WITH_BONUS=1 all
